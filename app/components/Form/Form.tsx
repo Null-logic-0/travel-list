@@ -12,8 +12,14 @@ const Form = ({ onTaskCreated }: FormProps): JSX.Element => {
   const [inputTitle, setTitle] = useState(" ");
 
   const createTask = () => {
+    const trimmedTitle = inputTitle.trim();
+
+    if (trimmedTitle === "") {
+      return;
+    }
+
     const task: Task = {
-      title: inputTitle,
+      title: trimmedTitle,
       completed: false,
       id,
     };
@@ -21,7 +27,7 @@ const Form = ({ onTaskCreated }: FormProps): JSX.Element => {
     id++;
 
     onTaskCreated(task);
-    setTitle("");
+    setTitle(""); // Clear the input after creating the task
   };
 
   const placeholder = (e: { target: { value: SetStateAction<string> } }) => {

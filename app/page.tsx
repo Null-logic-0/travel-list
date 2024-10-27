@@ -44,7 +44,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center flex-col justify-center">
+    <div className="flex items-center flex-col justify-center mx-[24px]">
       <Form onTaskCreated={taskCreatedSuccessFully} />
       {tasks.map((t) => (
         <ItemList
